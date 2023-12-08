@@ -1,0 +1,19 @@
+<section>
+    @if (isLoggedIn){
+        <p>Bienvenido {{ username }}</p>
+        <img
+        (click)="greet()"
+        src="https://github.com/Christofer148.png" alt="photo">
+        <app-games
+        (addFavouriteEvent)="getFavourite($event)" 
+        [username]="username"></app-games><!-- Hay que suscribirse a la data del elemento hijo y lo recibimos con una función -->
+    }@else {
+        <p>¡Inicia sesión!</p>
+        <button (click)="isLoggedIn = true">Log In</button>     <!-- Cambiar un estado en angular, como useState en react-->
+    }
+
+    @if (favGame !== ''){
+        <p>Tu juego favorito es {{ favGame }}</p>
+    }
+    
+</section>
